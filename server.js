@@ -3,10 +3,11 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
+var express = require('express'),
+    routes = require('./routes'),
+    api = require('./routes/api'),
+    http = require('http'),
+    path = require('path');
 
 var app = express();
 
@@ -14,24 +15,22 @@ var app = express();
 app.set('port', process.env.PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get('/partials/:name', routes.partials);
+app.get('/api/name', api.name);
+
 app.get('*', routes.index);
-app.get('/require.js', function(req, res) {
-    res.set('Content-Type', 'text/javascript');
-    res.sendfile('./require.js');
-});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

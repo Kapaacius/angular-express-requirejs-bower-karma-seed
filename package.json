@@ -1,12 +1,16 @@
 {
-  "name": "application-name",
+  "name": "angular-express-requirejs-karma-grunt-seed",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "express": "3.4.4",
-    "jade": "*"
+    "jade": "*",
+    "karma-jasmine": "~0.1.3",
+    "karma": "~0.10.5",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "karma-requirejs": "~0.1.0"
   }
 }
