@@ -15,8 +15,8 @@ require.config({
     baseUrl:    '/base/public/javascripts',
     paths: {
         angular         :   'vendor/angular/angular',
-        angularRoute    :   'vendor/angular/angular-route',
-        jquery          :   'vendor/jquery'
+        angularRoute    :   'vendor/angular-route/angular-route',
+        jquery          :   'vendor/jquery/jquery'
     },
     shim: {
         angular  : {

@@ -10,8 +10,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         'public/javascripts/vendor/angular/angular.js',
-        'tests/vendor/*.js',
-        {pattern: 'public/javascripts/*.js', included: false},
+        'public/javascripts/vendor/angular-mocks/angular-mocks.js',
+
         {pattern: 'public/javascripts/**/*.js', included: false},
         {pattern: 'tests/**/*.test.js', included: false},
         'tests/main.js'
@@ -20,7 +20,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-
+        'public/javascripts/vendor/requirejs/**/*.js'
     ],
 
 
