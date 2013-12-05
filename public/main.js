@@ -26,7 +26,7 @@ require([
 ], function(angular, modules){
     'use strict';
 
-    var moduleNames = modules.map(function(module){ //add app to modules list and retrieve all module names
+    var moduleNames = modules.map(function(module){ //retrieve all module names
         return module.name;
     });
 

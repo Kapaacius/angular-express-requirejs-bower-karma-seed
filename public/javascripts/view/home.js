@@ -15,7 +15,10 @@ define(['angular'], function(angular){
 
     mainModule.directive('appName', function(){
         return {
+            replace : true,
             controller : ['$scope', '$http', function($scope, $http){
+                $scope.appName = null; //placeholder
+                
                 $http.get('/api/name').success(function(data){
                     $scope.appName = data.name;
                 });
